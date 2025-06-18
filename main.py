@@ -25,7 +25,7 @@ def save_link(link):
     with open(DATA_FILE, "w") as f:
         json.dump(links, f)
 
-@app.route(f"/webhook", methods=["POST"])
+@app.route("/webhook", methods=["POST"])
 def webhook():
     update = telegram.Update.de_json(request.get_json(force=True), bot)
     if update.message and update.message.text:
